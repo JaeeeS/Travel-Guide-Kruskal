@@ -1,0 +1,325 @@
+<!---Map may not work on your device since it requires an api key. If the map won't load change the bottom script (this is placed at the end of html):
+First go to mapquestapi.com to get your own key.
+Next copy your key to 'HEREEEEE'
+
+ <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key= HEREEEEE"></script>
+ <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=HEREEEE"></script>
+
+I know it is kinda troublesome but this is the only free map I found since Google Maps requires billing to remove their watermark from the map and it is so unsightly for me.
+--->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAGUNA TRAVEL GUIDE</title>        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+    <body style='border:0; margin: 0'>     
+        <div class = "next-page" id = "next-page">
+             <div class="navbar">
+                <h1 class = "titlepage" style="text-align: center">Laguna Travel Guide</h1> 
+            </div>
+            <div>
+            
+            </div>
+            <div class="map-details" style="background-image: url('img1.jpg'); ">
+            <h2 class="dest" style="color: white">
+                    <button class="topie" onClick="document.location.reload(true)">Try Again?</button>
+                    <button class="topie" onclick="getLocation()">Get your location</button>
+                    </h2>
+            <div class="col2">
+                <div  class="map">
+                    <h1 style="color: white;margin: 0;padding: 0">Destinations</h1>
+                    <p class="txt" id="demo" style="width: 100%">Destinations</p>
+                    <button  onclick="enter()" style="border-radius: 5px;width: 100%">Confirm Destination</button>
+                    <div id='map'></div>
+                </div>
+                <div class="details" id="all">
+                        <div class="infom" id="info1">
+                            <div><img src ="pics/1.jpg"></div>
+                            <div>
+                                <h2>Seven Lakes </h2>
+                                <p>The lakes are maars or low-profile volcanic craters located in the San Pablo Volcanic Field. They are among the 200 small monogenetic volcanoes found along the Macolod Corridor, a rift zone between Mount Makiling and Mount Banahaw. 
+                                </p><hr>
+                                <div>
+                                <small>Entrance Fee in Mohicap - P10<br>
+                                    Bamboo Rafting in Pandin with Lunch - P360</small>
+                                </div><br>
+                                <button class="btnX" onclick="un1()">Unselect Destination</button>
+                                <button class="btnX" onclick="add1()">Select Destination</button>
+                                </div> 
+                            </div>
+                          <div class="infom" id="info2" style="display: none">
+                            <div><img src ="pics/2.jpg"></div>
+                            <div>
+                                <h2> Bato Springs Resort </h2>
+                                <p>Tucked in the city of San Pablo, Laguna, it is frequently visited by weekend warriors in search of a relaxing environment. The place is relaxing, surrounded by lots of trees and at the middle is stream like pool cascading on walls of rocks. </p><hr>
+                                <div>
+                                <small>Entrance Fee (For both kids and adults)<br>
+                                Weekends / Holidays: PHP 100<br>
+                                Weekdays: PHP 80<br>
+                                Overnight: PHP 150</small>
+                                </div><br>
+                                <button class="btnX" onclick="un2()">Unselect Destination</button>
+                                <button class="btnX" onclick="add2()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info3" style="display: none">
+                            <div><img src ="pics/3.jpg"></div>
+                            <div>
+                                <h2>Pagsanjan Falls</h2>
+                                <p>Pagsanjan Falls is one of the most famous waterfalls in the Philippines. Located in the province of Laguna, the falls is one of the major tourist attractions of the region. 
+                                </p><hr>
+                                <div>
+                                <small>Entrance fee: Seeing the waterfall is FREE, but if you want to access          other areas of Pagsanjan park proper, there’s a fee ranging from PHP 20 – PHP 300 <br>Shooting the rapids in Pagsanjan Falls: PHP 1,250/person (rate includes round-trip boat ride, entrance fees, and use of life vests)</small>
+                                </div><br>
+                                <button class="btnX" onclick="un3()">Unselect Destination</button>
+                                <button class="btnX" onclick="add3()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info4" style="display: none">
+                            <div><img src ="pics/4.jpg"></div>
+                            <div>
+                                <h2> Dampalit Falls</h2>
+                                <p>The falls of Dampalit is tall and falls into a relatively shallow catch basin that continues as a series of much shorter albeit wider drops into a maze of huge rocks that dot the stream. The lush, green surroundings make the place an ideal picnic area.  </p><hr>
+                                <div>
+                                <small>Entrance Fee: PHP 20 per person<br>
+                                       Rent huts and tables: PHP 200-300
+                                </small>
+                                </div><br>
+                                <button class="btnX" onclick="un4()">Unselect Destination</button>
+                                <button class="btnX" onclick="add4()">Select Destination</button>
+                            </div>
+                        </div>
+                        <div class="infom" id="info5"  style="display: none">
+                            <div><img src ="pics/5.jpg"></div>
+                            <div>
+                                <h2>Enchanted Kingdom</h2>
+                `                <p>Enchanted Kingdom is a theme park in the Philippines. It is located in Santa Rosa, Laguna. It has a land area of 25                         hectares. The park is managed and operated by Enchanted Kingdom Inc. Enchanted Kingdom is a member of the International
+                                    Association of Amusement Parks and Attractions. </p><hr>
+                                <div>
+                                <small>Regular Day Pass: PHP 800 (Unlimited park rides)</small>
+                                </div><br>
+                                <button class="btnX" onclick="un5()">Unselect Destination</button>
+                                <button class="btnX" onclick="add5()">Select Destination</button>
+                                </div> 
+                            </div>
+                          <div class="infom" id="info6" style="display: none">
+                            <div><img src ="pics/6..jpg"></div>
+                            <div>
+                                <h2> Nuvali Park</h2>
+                                <p>NUVALI is the country’s first and largest eco-city development, built on the principles of sustainable design. NUVALI offers nature amenities such as its 35-kilometer mountain bike trail, a multi-functional lake, hiking paths, a wildlife
+                                    and bird sanctuary, and Camp N teambuilding and camping grounds.   </p> <hr>    
+                                <div>
+                                <small>No Entrance Fee but there are outdoor activities that you can join such as wakeboarding that 350 for an hour</small>
+                                </div>
+                                <button class="btnX" onclick="un6()">Unselect Destination</button>
+                                <button class="btnX" onclick="add6()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info7" style="display: none">
+                            <div><img src ="pics/7..jpg"></div>
+                            <div>
+                                <h2> Rizal Shrine</h2>
+                                <p>The Rizal Shrine in Calamba (Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-Colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861.
+                                </p><hr>
+                                <div>
+                                <small>Entrance fee: Free but donations are accepted</small>
+                                </div><br>
+                                <button class="btnX" onclick="un7()">Unselect Destination</button>
+                                <button class="btnX" onclick="add7()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info8" style="display: none">
+                            <div><img src ="pics/8..jpg"></div>
+                            <div>
+                                <h2> Hidden Valley Springs</h2>
+                                <p> A truly tropical rainforest paradise. The nearest town to Hidden Vally Laguna is Calauan and the springs are accessed down a winding road, away from the traffic, nestled in a charming, rural setting.   </p><hr> 
+                                <div>
+                                <small>Admission Fees - PHP 2500 (includes lunch buffet and afternoon snack)</small>
+                                </div><br>
+                                <button class="btnX" onclick="un8()">Unselect Destination</button>
+                                <button class="btnX" onclick="add8()">Select Destination</button>
+                            </div>
+                        </div>
+                        <div class="infom" id="info9" style="display: none">
+                            <div><img src ="pics/9.jpg"></div>
+                            <div>
+                                <h2> Mt. Makiling</h2>
+                                <p> An inactive stratovolcano located in the provinces of Laguna and Batangas on the island of Luzon, Philippines. The mountain rises to an elevation of 1,090 m (3,580 ft) above mean sea level and is the highest feature of the Laguna Volcanic
+                                Field. Mount Makiling is a state-owned forest reserve administered by the University of the Philippines Los Baños. </p><hr>
+                                <div> 
+                                <div>
+                                <small>Entrance Fee: PHP 40<br>Camping Fee: PHP 200 (for a group of five)
+                                 They have a “No ID, No Entry” policy, so be sure to bring one during your visit</small>
+                                </div><br>
+                                <button class="btnX" onclick="un9()">Unselect Destination</button>
+                                <button class="btnX" onclick="add9()">Select Destination</button>
+                                </div> 
+                            </div>
+                        </div>
+                          <div class="infom" id="info10" style="display: none">
+                            <div><img src ="pics/10..jpg"></div>
+                            <div>
+                                <h2>Hulugan Falls</h2>
+                                <p>  Massive waterfall surrounded by thick forest with a hiking trail & swimming area. It is also quite wide, maybe 20-25 metres (60-70 feet), and has a strong flow of water.  </p> <hr>
+                                <div>
+                                <small>Registration fee – PHP 30 per person <br>
+                                Guide fee – PHP 500 for Hulugan Falls only; PHP 600 for the 3 waterfalls (good for 5 people)</small>
+                                </div><br>
+                                <button class="btnX" onclick="un10()">Unselect Destination</button>
+                                <button class="btnX" onclick="add10()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info11" style="display: none">
+                            <div><img src ="pics/11.jpg"></div>
+                            <div>
+                                <h2> Nagcarlan Underground Cemetery</h2>
+                                <p> The Nagcarlan Underground Cemetery (Libingan sa Ilalim ng Lupa ng Nagcarlan) is a national historical landmark and museum in Barangay Bambang, Nagcarlan, Laguna supervised by the National Historical Commission of the Philippines.</p><hr>
+                                <div>
+                                <small>Entrance fee: Free but donations are accepted</small>
+                                </div>
+                                <button class="btnX" onclick="un11()">Unselect Destination</button>
+                                <button class="btnX" onclick="add11()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info12" style="display: none">
+                            <div><img src ="pics/12.jpg"></div>
+                            <div>
+                                <h2>Pila Heritage Site</h2>
+                                <p> Pila’s town plaza, including the nearby ancestral houses, was declared a National Historical Landmark last 2000 by the National Historical Institute of the Philippines. The town plaza is just a short drive away from the national highway.
+                                </p> <hr>      <div>
+                                <small>Entrance fee: Free but donations are accepted</small>
+                                </div><br>
+                                <button class="btnX" onclick="un12()">Unselect Destination</button>
+                                <button class="btnX" onclick="add12()">Select Destination</button>
+                            </div>
+                        </div>
+                        <div class="infom" id="info13"  style="display: none">
+                            <div><img src ="pics/13.jpg"></div>
+                            <div>
+                                <h2> Japanese Garden</h2>
+                                <p> Located near Caliraya Lake between Lumban and Cavinti, the garden was developed to honor the soldiers who died during the Second World War. You will be greeted upon entrance with a large torii, reminding you that you are about to enter
+                                    a quiet, hallowed ground.</p><hr>
+                                <div>
+                                <small>Entrance fee: Free</small>
+                                </div>
+                                <button class="btnX" onclick="un13()">Unselect Destination</button>
+                                <button class="btnX" onclick="add13()">Select Destination</button>
+                                </div> 
+                            </div>
+                          <div class="infom" id="info14" style="display: none">
+                            <div><img src ="pics/14.jpg"></div>
+                            <div>
+                                <h2> Makiling Botanical Garden</h2>
+                                <p> The Makiling Botanical Garden was built in September 1965 to support professional instruction and research related to forestry and plant sciences. Makiling botanic gardens offers a safe and beautiful hike through the forest of Mount Maquiling.
+                                    The longer trails offer a challenging hike with many ups and downs and stream beds. The trees are old and full of epiphytes.</p><hr>
+                                <div>
+                                <small>Entrance fee: PHP 40</small>
+                                </div>
+                                <button class="btnX" onclick="un14()">Unselect Destination</button>
+                                <button class="btnX" onclick="add14()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info15" style="display: none">
+                            <div><img src ="pics/15.jpg"></div>
+                            <div>
+                                <h2> Republic Waterpark</h2>
+                                <p>
+                                    The Newest and Most Innovative Wakepark in the World! Republ1c Wakepark, a place for wakeboarding in Laguna and other water sports enthusiasts Republic Wakepark is the best place to learn wakeboarding because they only provide professionals to teach all
+                                    the right techniques while having fun.</p><hr>
+                                <div>
+                                <small>Entrance fee: PHP 250</small>
+                                </div>
+                                <button class="btnX" onclick="un15()">Unselect Destination</button>
+                                <button class="btnX" onclick="add15()">Select Destination</button>
+                                </div>
+                            </div>
+                        <div class="infom" id="info16" style="display: none">
+                            <div><img src ="pics/16.jpg"></div>
+                            <div>
+                                <h2> Sulyap Gallery Cafe</h2>
+                                <p> Experience a sumptuous “taste of the past” with multi-awarded and world-renowned Sulyap Gallery Café, Boutique Hotels and Restaurant. They offer the best traditional and modern Filipino Cuisine, the comfort of a bed and breakfast scene,
+                                    and the grand experience of exploring our classical picturesque halls.</p><hr>
+                                <div>
+                                <small>Budget: PHP 500 – 3000</small>
+                                </div>
+                                <button class="btnX" onclick="un8()">Unselect Destination</button>
+                                <button class="btnX" onclick="add8()">Select Destination</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+            <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <span class="close" onclick="exit()">&times;</span>
+                        <form id="input">
+                          <label for="lat">Latitude:</label><br>
+                          <input type="text" id="lat" name="fname" value=""><br>
+                          <label for="long">Longitude:</label><br>
+                          <input type="text" id="long" name="lname" value=""><br><br>
+                        </form> 
+                          <button onclick="getUser()">Enter</button>  
+                      </div>
+                    </div>
+            
+                    <div id="confirm" class="secret" style="display: none">
+                      <!-- Modal content -->
+                      <div class="confirm-content">
+                          <span class="close" onclick="ex()">&times;</span>
+                          <div>
+                            <p>Ready to get your route? </p>
+                            <button class="topie" onclick="nEdge()">Compute Route</button>
+                          </div>
+                      </div>
+                    </div>
+            
+                    <div id="mark" class="secret" style="display: none">
+                      <!-- Modal content -->
+                      <div class="mark-content">
+                          <span class="close" onclick="exi()">&times;</span>
+                          <div>
+                            <form>
+                              Choose your starting point<br>
+                              <input type="radio" name="colors" id="d0">Seven Lakes<br>
+                              <input type="radio" name="colors" id="d1">Bato Springs Resort<br>
+                              <input type="radio" name="colors" id="d2">Pagsanjan Falls<br>
+                              <input type="radio" name="colors" id="d3">Dampalit Falls<br>
+                              <input type="radio" name="colors" id="d4">Enchanted Kingdom<br>
+                              <input type="radio" name="colors" id="d5">Nuvali Park<br>
+                              <input type="radio" name="colors" id="d6">Rizal Shrine<br>
+                              <input type="radio" name="colors" id="d7">Hidden Valley Springs<br>
+                              <input type="radio" name="colors" id="d8">Mt. Makiling<br>
+                              <input type="radio" name="colors" id="d9">Hulugan Falls<br>
+                              <input type="radio" name="colors" id="d10">Nagcarlan Underground Cemetery<br>
+                              <input type="radio" name="colors" id="d11">Pila Heritage Site<br>
+                              <input type="radio" name="colors" id="d12">Japanese Garden<br>
+                              <input type="radio" name="colors" id="d13">Makiling Botanical Garden<br>
+                              <input type="radio" name="colors" id="d14">Republic Wakepark<br>
+                              <input type="radio" name="colors" id="d15">Sulyap Gallery Cafe<br>
+                              <button onclick="start()">Mark</button>
+                            </form>
+                          </div>
+                      </div>
+                    </div>
+
+                </div> 
+</div>
+
+
+
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=FcKzyHcPGT9JZEqh71fn3xtuXAA2vvAp"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=FcKzyHcPGT9JZEqh71fn3xtuXAA2vvAp"></script>
+        <script src="app.js"></script>
+
+    </body>
+</html>

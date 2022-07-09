@@ -1,0 +1,290 @@
+body{
+    background-color:white
+}
+.navbar {
+  overflow: hidden;
+
+  font-size: 20px;
+}
+h1{
+    color: black;
+    text-align: left;
+    margin-left: 20px;
+}
+#map {
+    height:500px;
+    border-style: solid;
+    border-width: thick;
+}
+.map{
+    padding: 20px;
+    width: 50%;
+}
+.black{
+    height: 10px;
+    background: black;
+    width: 100%;
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+.container-map{
+    align-items: center;
+    width: 100%;
+    height: 1000px;
+    background: #D9FFE5;
+}
+.col2{
+    width: 100%;
+}
+
+.head{
+    text-align: center;
+    margin: 25px;
+}
+
+.leaflet-top .leaflet-control {
+    margin-top: 200px;
+}
+
+
+input:nth-child(1) {
+    margin-bottom: 10px;
+}
+
+.buttons{
+    float: right;
+    width: 100px;
+    margin-right: 5px;
+    height: 20px
+}
+button{
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #900C3F;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white
+}
+
+
+button:hover{
+    background-color: #E1D3D3;
+}
+/*----about us -----*/
+
+
+
+.btn {
+    border: 1px solid #900C3F background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 15px;
+    color: white;
+}
+
+.btn1,
+.btn2 {
+    color: white;
+    border-radius: 15px;
+}
+
+.btn1:hover,
+.btn2:hover {
+    color: #4285F4;
+}
+img{
+    width: 100%;
+}
+
+
+.right{
+    float: right;
+    margin: 10px;
+    position: relative;
+}
+
+.txt{
+    color: black;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    width: 100%;
+    font-weight: 1000;
+    font-size: 15px;
+}
+
+.topie{
+    margin-left: 10px;
+    height: 40px;
+    float: right;
+    border-radius: 15px;
+    background: #900C3F;
+    font-weight: 500;
+}
+
+.titlepage, .dest{
+    margin-top:20px;
+    margin-left: 20px;
+}
+.txt img{
+    width: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+
+.next-page{
+    margin: auto;
+    padding: 20px
+}
+
+
+.first-page{
+    background-image: url('wallpaper.jpg');
+    width: 100%;
+    height: 100%;
+}
+.opening-text{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+}
+.opening-text h1{
+    text-align: center;
+    color:#EF8B2D;
+}
+.start-btn{
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+}
+.col2{
+    display: flex;
+}
+.map-details{
+    background-color: #353230;
+    padding:10px 20px;
+}
+.details{
+    background: white;
+    height: auto;
+    width: 50%;
+    box-shadow: 0 1px 5px rgba(0,0,0,1);
+    border-radius: 5px;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+.details img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-height: 300px;
+}
+.details .infom {
+    color: rgb(0, 0, 0);
+    height: 600px;
+    background:  rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+}
+.btnX{
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+    width: 40%;
+    padding: 5px;
+    margin-right: 40px;
+    border-radius: 5px;
+}
+h2{
+    text-align: center;
+}
+.details p{
+    text-indent: 50px;
+}
+.dest {
+    text-align: left
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 250px;
+    float: left;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.half{
+    width: 50%;
+}
+
+.secret{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.confirm-content {
+  background-color: #fefefe;
+  margin: 300px;
+  padding: 20px;
+  border: 1px solid #888;
+  float: left;
+}
+
+.mark-content {
+  background-color: #fefefe;
+  margin: 300px;
+  padding: 20px;
+  border: 1px solid #888;
+  float: left;
+}
